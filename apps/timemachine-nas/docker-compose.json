@@ -3,23 +3,13 @@
   "services": [
     {
       "name": "samba",
-      "image": "crazymax/samba:latest",
+      "image": "dperson/samba",
       "isMain": true,
       "internalPort": "445",
       "networkMode": "host",
+      "command": "-t -u \"${SAMBA_USER};${SAMBA_PASS}\" -s \"TimeMachine;/data;yes;no;no;${SAMBA_USER};;\" -p",
       "environment": [
-        { "key": "TZ", "value": "Etc/UTC" },
-        { "key": "SAMBA_USER", "value": "${SAMBA_USER}" },
-        { "key": "SAMBA_PASS", "value": "${SAMBA_PASS}" },
-        { "key": "SAMBA_USERS", "value": "${SAMBA_USER}:${SAMBA_PASS}" },
-        { "key": "SAMBA_VOLUME_CONFIG_TimeMachine", "value": "/data;Time Machine Backup;no;no;yes;${SAMBA_USER};yes;${SAMBA_USER};;;" },
-        { "key": "SAMBA_GLOBAL_CONFIG_vfs_objects", "value": "fruit streams_xattr" },
-        { "key": "SAMBA_GLOBAL_CONFIG_fruit_time_machine", "value": "yes" },
-        { "key": "SAMBA_GLOBAL_CONFIG_fruit_aapl", "value": "yes" },
-        { "key": "SAMBA_GLOBAL_CONFIG_state_directory", "value": "/tmp/samba/state" },
-        { "key": "SAMBA_GLOBAL_CONFIG_cache_directory", "value": "/tmp/samba/cache" },
-        { "key": "SAMBA_GLOBAL_CONFIG_lock_directory", "value": "/tmp/samba/lock" },
-        { "key": "SAMBA_GLOBAL_CONFIG_pid_directory", "value": "/tmp/samba/pid" }
+        { "key": "TZ", "value": "Etc/UTC" }
       ],
       "volumes": [
         {
