@@ -9,7 +9,7 @@
   "categories": ["utilities", "network"],
   "description": "Turn your RunTipi server into a Time Machine backup destination for your Mac. (Note: App will listen on port 445 on the host regardless of the port setting below).",
   "tipi_version": 7,
-  "version": "1.0.0",
+  "version": "0.1.6",
   "source": "https://github.com/crazy-max/docker-samba",
   "exposable": false,
   "supported_architectures": ["arm64", "amd64"],
