@@ -1,0 +1,17 @@
+{
+  "name": "Time Machine NAS",
+  "id": "timemachine-nas",
+  "available": true,
+  "short_desc": "Apple Time Machine compatible Samba NAS server",
+  "author": "crazy-max",
+  "port": 445,
+  "categories": ["utilities", "network"],
+  "description": "Turn your RunTipi server into a Time Machine backup destination for your Mac. Uses modern Samba with Apple-specific extensions (vfs_fruit) for reliable and fast backups.",
+  "tipi_version": 1,
+  "version": "0.1.0",
+  "source": "https://github.com/crazy-max/docker-samba",
+  "exposable": false,
+  "supported_architectures": ["arm64", "amd64"],
+  "dynamic_config": true,
+  "form_fields": []
+}
