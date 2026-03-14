@@ -1,0 +1,16 @@
+services:
+  vscode-server:
+    image: codercom/code-server:4.95.3
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - PASSWORD=password # Should be changed or handled by RunTipi
+    volumes:
+      - ${APP_DATA_DIR}/config:/config
+    x-runtipi:
+      is_main: true
+      internal_port: 8080
+
+x-runtipi:
+  schema_version: 2

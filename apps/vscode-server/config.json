@@ -1,0 +1,12 @@
+{
+  "id": "vscode-server",
+  "name": "VS Code Server",
+  "version": "1.0.0",
+  "min_tipi_version": "4.5.0",
+  "exposable": true,
+  "categories": ["development"],
+  "short_desc": "VS Code Server for RunTipi",
+  "description": "Run Visual Studio Code in your browser as a self-hosted service.",
+  "port": 8080,
+  "supported_architectures": ["arm64", "amd64"]
+}
