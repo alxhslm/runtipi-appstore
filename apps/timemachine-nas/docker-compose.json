@@ -22,12 +22,12 @@
           "type": "bind"
         },
         {
-          "hostPath": "${APP_DATA_DIR}/cache",
+          "hostPath": "tm-cache",
           "containerPath": "/var/cache/samba",
           "type": "bind"
         },
         {
-          "hostPath": "${APP_DATA_DIR}/lib",
+          "hostPath": "tm-lib",
           "containerPath": "/var/lib/samba",
           "type": "bind"
         }
