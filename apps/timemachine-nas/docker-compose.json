@@ -9,12 +9,26 @@
       "networkMode": "host",
       "environment": [
         { "key": "TZ", "value": "Etc/UTC" },
-        { "key": "SAMBA_LOG_LEVEL", "value": "1" }
+        { "key": "SAMBA_USERS", "value": "${SAMBA_USER}:${SAMBA_PASS}" },
+        { "key": "SAMBA_VOLUME_CONFIG_TimeMachine", "value": "/data;Time Machine Backup;no;no;yes;${SAMBA_USER};yes;${SAMBA_USER};;;" },
+        { "key": "SAMBA_GLOBAL_CONFIG_vfs_objects", "value": "fruit streams_xattr" },
+        { "key": "SAMBA_GLOBAL_CONFIG_fruit_time_machine", "value": "yes" },
+        { "key": "SAMBA_GLOBAL_CONFIG_fruit_aapl", "value": "yes" }
       ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data",
           "containerPath": "/data",
+          "type": "bind"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/cache",
+          "containerPath": "/var/cache/samba",
+          "type": "bind"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/lib",
+          "containerPath": "/var/lib/samba",
           "type": "bind"
         }
       ]
