@@ -7,9 +7,10 @@
       "isMain": true,
       "internalPort": "445",
       "networkMode": "host",
-      "command": "-t -u \"${SAMBA_USER};${SAMBA_PASS}\" -s \"TimeMachine;/data;yes;no;no;${SAMBA_USER};;\" -p",
       "environment": [
-        { "key": "TZ", "value": "Etc/UTC" }
+        { "key": "TZ", "value": "Etc/UTC" },
+        { "key": "USER", "value": "${SAMBA_USER};${SAMBA_PASS}" },
+        { "key": "SHARE", "value": "TimeMachine;/data;yes;no;no;${SAMBA_USER};;" }
       ],
       "volumes": [
         {
