@@ -8,7 +8,7 @@
   "categories": ["development"],
   "description": "Run Visual Studio Code in your browser as a self-hosted service.",
   "tipi_version": 1,
-  "version": "4.95.3",
+  "version": "0.1.0",
   "source": "https://github.com/coder/code-server",
   "exposable": true,
   "supported_architectures": ["arm64", "amd64"],
