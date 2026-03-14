@@ -19,20 +19,8 @@
         {
           "hostPath": "${APP_DATA_DIR}/data",
           "containerPath": "/data"
-        },
-        {
-          "hostPath": "tm-cache",
-          "containerPath": "/var/cache/samba"
-        },
-        {
-          "hostPath": "tm-lib",
-          "containerPath": "/var/lib/samba"
         }
       ]
     }
-  ],
-  "volumes": {
-    "tm-cache": {},
-    "tm-lib": {}
-  }
+  ]
 }
