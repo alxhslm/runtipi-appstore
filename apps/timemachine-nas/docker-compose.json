@@ -9,6 +9,8 @@
       "networkMode": "host",
       "environment": [
         { "key": "TZ", "value": "Etc/UTC" },
+        { "key": "SAMBA_USER", "value": "${SAMBA_USER}" },
+        { "key": "SAMBA_PASS", "value": "${SAMBA_PASS}" },
         { "key": "SAMBA_USERS", "value": "${SAMBA_USER}:${SAMBA_PASS}" },
         { "key": "SAMBA_VOLUME_CONFIG_TimeMachine", "value": "/data;Time Machine Backup;no;no;yes;${SAMBA_USER};yes;${SAMBA_USER};;;" },
         { "key": "SAMBA_GLOBAL_CONFIG_vfs_objects", "value": "fruit streams_xattr" },
