@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 2,
+  "services": [
+    {
+      "name": "samba",
+      "image": "crazymax/samba:latest",
+      "isMain": true,
+      "internalPort": "445",
+      "networkMode": "host",
+      "environment": [
+        { "name": "TZ", "value": "Etc/UTC" },
+        { "name": "SAMBA_LOG_LEVEL", "value": "1" }
+      ],
+      "volumes": [
+        {
+          "host": "${APP_DATA_DIR}/data",
+          "container": "/data",
+          "type": "bind"
+        }
+      ]
+    }
+  ]
+}
