@@ -26,6 +26,18 @@
       "type": "password",
       "label": "Password",
       "default": "runtipi"
+    },
+    {
+      "env_variable": "ADDITIONAL_SHARE_NAME",
+      "type": "text",
+      "label": "Additional SMB Share Name",
+      "default": "Archive"
+    },
+    {
+      "env_variable": "ADDITIONAL_SHARE_PATH",
+      "type": "text",
+      "label": "Additional SMB Share Host Path",
+      "default": "/mnt/data/archive"
     }
   ]
 }
