@@ -12,6 +12,7 @@
         { "key": "USER", "value": "${SAMBA_USER};${SAMBA_PASS}" },
         { "key": "SHARE", "value": "TimeMachine;/data;yes;no;no;${SAMBA_USER};;" },
         { "key": "SHARE_1", "value": "${ADDITIONAL_SHARE_NAME:-Archive};/shares/${ADDITIONAL_SHARE_NAME:-Archive};yes;no;no;${SAMBA_USER}" },
+        { "key": "TIMEMACHINE_PATH", "value": "${TIMEMACHINE_PATH:-${APP_DATA_DIR}/data}" },
         { "key": "ADDITIONAL_SHARE_NAME", "value": "${ADDITIONAL_SHARE_NAME:-Archive}" },
         { "key": "ADDITIONAL_SHARE_PATH", "value": "${ADDITIONAL_SHARE_PATH:-/mnt/data/archive}" },
         { "key": "PERMISSIONS", "value": "true" },
@@ -27,7 +28,7 @@
       ],
       "volumes": [
         {
-          "hostPath": "${APP_DATA_DIR}/data",
+          "hostPath": "${TIMEMACHINE_PATH:-${APP_DATA_DIR}/data}",
           "containerPath": "/data"
         },
         {
