@@ -68,8 +68,7 @@ describe("each app should have a valid docker-compose.json", async () => {
       const parsed = dynamicComposeSchema(JSON.parse(fileContent || '{}'))
 
       if (parsed instanceof type.errors) {
-        const validationError = fromError(parsed);
-        console.error(`Error parsing docker-compose.json for app ${app}:`, validationError.toString());
+        console.error(`Error parsing docker-compose.json for app ${app}:`, parsed.summary);
       }
 
       expect(parsed instanceof type.errors).toBe(false)
