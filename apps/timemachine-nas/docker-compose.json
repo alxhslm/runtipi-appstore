@@ -11,7 +11,10 @@
         { "key": "TZ", "value": "Etc/UTC" },
         { "key": "USER", "value": "${SAMBA_USER};${SAMBA_PASS}" },
         { "key": "SHARE", "value": "TimeMachine;/data;yes;no;no;${SAMBA_USER};;" },
-        { "key": "SHARE_1", "value": "${ADDITIONAL_SHARE_NAME};/shares/${ADDITIONAL_SHARE_NAME};yes;no;no;${SAMBA_USER}" },
+        { "key": "SHARE_1", "value": "${ADDITIONAL_SHARE_NAME:-Archive};/shares/${ADDITIONAL_SHARE_NAME:-Archive};yes;no;no;${SAMBA_USER}" },
+        { "key": "ADDITIONAL_SHARE_NAME", "value": "${ADDITIONAL_SHARE_NAME:-Archive}" },
+        { "key": "ADDITIONAL_SHARE_PATH", "value": "${ADDITIONAL_SHARE_PATH:-/mnt/data/archive}" },
+        { "key": "PERMISSIONS", "value": "true" },
         { "key": "GLOBAL_1", "value": "vfs objects = fruit streams_xattr" },
         { "key": "GLOBAL_2", "value": "fruit:time machine = yes" },
         { "key": "GLOBAL_3", "value": "fruit:aapl = yes" },
@@ -28,8 +31,8 @@
           "containerPath": "/data"
         },
         {
-          "hostPath": "${ADDITIONAL_SHARE_PATH}",
-          "containerPath": "/shares/${ADDITIONAL_SHARE_NAME}"
+          "hostPath": "${ADDITIONAL_SHARE_PATH:-/mnt/data/archive}",
+          "containerPath": "/shares/${ADDITIONAL_SHARE_NAME:-Archive}"
         }
       ]
     }
