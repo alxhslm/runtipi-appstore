@@ -3,29 +3,23 @@
   "services": [
     {
       "name": "samba",
-      "image": "dperson/samba",
+      "image": "ghcr.io/servercontainers/samba",
       "isMain": true,
       "internalPort": "445",
       "networkMode": "host",
       "environment": [
-        { "key": "TZ", "value": "Etc/UTC" },
-        { "key": "USER", "value": "${SAMBA_USER:-tipi};${SAMBA_PASS:-runtipi}" },
-        { "key": "SHARE", "value": "TimeMachine;/data;yes;no;no;${SAMBA_USER:-tipi};;" },
-        { "key": "SHARE_1", "value": "${ADDITIONAL_SHARE_NAME:-Archive};/shares/Archive;yes;no;no;${SAMBA_USER:-tipi}" },
-        { "key": "PERMISSIONS", "value": "true" },
-        { "key": "GLOBAL_1", "value": "vfs objects = catia fruit streams_xattr" },
-        { "key": "GLOBAL_2", "value": "fruit:time machine = yes" },
-        { "key": "GLOBAL_3", "value": "fruit:aapl = yes" },
-        { "key": "GLOBAL_4", "value": "fruit:metadata = netatalk" },
-        { "key": "GLOBAL_5", "value": "fruit:model = MacSamba" },
-        { "key": "GLOBAL_6", "value": "fruit:posix_rename = yes" },
-        { "key": "GLOBAL_7", "value": "fruit:veto_appledouble = no" },
-        { "key": "GLOBAL_8", "value": "fruit:wipe_intentionally_left_blank_rfork = yes" },
-        { "key": "GLOBAL_9", "value": "fruit:delete_empty_adfiles = yes" },
-        { "key": "GLOBAL_10", "value": "locking = no" },
-        { "key": "GLOBAL_11", "value": "mangled names = no" },
-        { "key": "GLOBAL_12", "value": "fruit:nfs_aces = no" },
-        { "key": "GLOBAL_13", "value": "fruit:copyfile = yes" }
+        { "key": "AVAHI", "value": "false" },
+        { "key": "WSDD2", "value": "false" },
+        { "key": "SAMBA_CONF_LOG_LEVEL", "value": "1" },
+        { "key": "ACCOUNT_${SAMBA_USER:-tipi}", "value": "${SAMBA_PASS:-runtipi}" },
+        { "key": "SAMBA_VOLUME_CONFIG_TM", "value": "[TimeMachine];path=/data;valid users=${SAMBA_USER:-tipi};read only=no;fruit:time machine=yes;vfs objects=catia fruit streams_xattr;fruit:metadata=stream" },
+        { "key": "SAMBA_VOLUME_CONFIG_ARC", "value": "[Archive];path=/shares/Archive;valid users=${SAMBA_USER:-tipi};read only=no;vfs objects=catia fruit streams_xattr;fruit:metadata=stream" },
+        { "key": "SAMBA_CONF_GLOBAL_vfs_objects", "value": "catia fruit streams_xattr" },
+        { "key": "SAMBA_CONF_GLOBAL_fruit_aapl", "value": "yes" },
+        { "key": "SAMBA_CONF_GLOBAL_fruit_model", "value": "MacSamba" },
+        { "key": "SAMBA_CONF_GLOBAL_fruit_metadata", "value": "stream" },
+        { "key": "SAMBA_CONF_GLOBAL_fruit_nfs_aces", "value": "no" },
+        { "key": "SAMBA_CONF_GLOBAL_fruit_copyfile", "value": "yes" }
       ],
       "volumes": [
         {
