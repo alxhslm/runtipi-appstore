@@ -9,8 +9,8 @@
   "categories": ["utilities", "network"],
   "description": "Turn your RunTipi server into a Time Machine backup destination for your Mac. (Note: App will listen on port 445 on the host regardless of the port setting below).",
   "tipi_version": 14,
-  "version": "0.3.0",
-  "updated_at": 1773648889143,
+  "version": "0.3.1",
+  "updated_at": 1711224000000,
   "source": "https://github.com/ServerContainers/samba",
   "exposable": false,
   "supported_architectures": ["arm64", "amd64"],
@@ -32,7 +32,7 @@
       "env_variable": "TIMEMACHINE_PATH",
       "type": "text",
       "label": "Time Machine Host Path",
-      "default": "/home/alexhaslam/runtipi/app-data/personal/timemachine-nas/data"
+      "default": "/mnt/data_fast/timemachine"
     },
     {
       "env_variable": "ADDITIONAL_SHARE_NAME",
@@ -44,7 +44,19 @@
       "env_variable": "ADDITIONAL_SHARE_PATH",
       "type": "text",
       "label": "Additional SMB Share Host Path",
-      "default": "/mnt/data/archive"
+      "default": "/mnt/storage_bulk/archive"
+    },
+    {
+      "env_variable": "PUID",
+      "type": "number",
+      "label": "Owner PUID",
+      "default": 100
+    },
+    {
+      "env_variable": "PGID",
+      "type": "number",
+      "label": "Owner PGID",
+      "default": 101
     }
   ]
 }
