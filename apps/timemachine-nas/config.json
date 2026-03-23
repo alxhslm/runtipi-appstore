@@ -9,7 +9,7 @@
   "categories": ["utilities", "network"],
   "description": "Turn your RunTipi server into a Time Machine backup destination for your Mac. (Note: App will listen on port 445 on the host regardless of the port setting below).",
   "tipi_version": 14,
-  "version": "0.3.1",
+  "version": "0.3.2",
   "updated_at": 1711224000000,
   "source": "https://github.com/ServerContainers/samba",
   "exposable": false,
@@ -26,7 +26,7 @@
       "env_variable": "SAMBA_PASS",
       "type": "password",
       "label": "Password",
-      "default": "runtipi"
+      "default": "runtipi1234"
     },
     {
       "env_variable": "TIMEMACHINE_PATH",

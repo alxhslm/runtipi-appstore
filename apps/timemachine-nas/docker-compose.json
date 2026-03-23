@@ -8,19 +8,16 @@
       "internalPort": "445",
       "networkMode": "host",
       "environment": [
-        { "key": "AVAHI", "value": "false" },
-        { "key": "WSDD2", "value": "false" },
         { "key": "SAMBA_CONF_LOG_LEVEL", "value": "1" },
-        { "key": "ACCOUNT_${SAMBA_USER:-tipi}", "value": "${SAMBA_PASS:-runtipi};${PUID:-100};${PGID:-101}" },
-        { "key": "SAMBA_CONF_GLOBAL_force_user", "value": "${SAMBA_USER:-tipi}" },
+        { "key": "ACCOUNT_${SAMBA_USER:-tipi}", "value": "${SAMBA_PASS:-runtipi1234}" },
         { "key": "SAMBA_CONF_GLOBAL_vfs_objects", "value": "catia fruit streams_xattr" },
         { "key": "SAMBA_CONF_GLOBAL_fruit_aapl", "value": "yes" },
         { "key": "SAMBA_CONF_GLOBAL_fruit_model", "value": "MacSamba" },
         { "key": "SAMBA_CONF_GLOBAL_fruit_metadata", "value": "stream" },
         { "key": "SAMBA_CONF_GLOBAL_fruit_nfs_aces", "value": "no" },
         { "key": "SAMBA_CONF_GLOBAL_fruit_copyfile", "value": "yes" },
-        { "key": "SAMBA_VOLUME_CONFIG_TM", "value": "[TimeMachine];path=/data;valid users=${SAMBA_USER:-tipi};read only=no;fruit:time machine=yes" },
-        { "key": "SAMBA_VOLUME_CONFIG_ARC", "value": "[${ADDITIONAL_SHARE_NAME:-Archive}];path=/shares/Archive;valid users=${SAMBA_USER:-tipi};read only=no" }
+        { "key": "SAMBA_VOLUME_CONFIG_TM", "value": "[TimeMachine];path=/data;valid users=${SAMBA_USER:-tipi};read only=no;fruit:time machine=yes;force user=${PUID:-100};force group=${PGID:-101}" },
+        { "key": "SAMBA_VOLUME_CONFIG_ARC", "value": "[${ADDITIONAL_SHARE_NAME:-Archive}];path=/shares/Archive;valid users=${SAMBA_USER:-tipi};read only=no;force user=${PUID:-100};force group=${PGID:-101}" }
       ],
       "volumes": [
         {
