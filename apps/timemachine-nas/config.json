@@ -7,9 +7,9 @@
   "port": 4445,
   "no_gui": true,
   "categories": ["utilities", "network"],
-  "description": "A macOS Time Machine backup destination using modern Samba (4.22) with built-in Avahi/Bonjour for automatic network discovery. Uses mbentley/timemachine:smb image.",
-  "tipi_version": 15,
-  "version": "1.0.0",
+  "description": "A macOS Time Machine backup destination using modern Samba (4.22) with built-in Avahi/Bonjour for automatic network discovery.",
+  "tipi_version": 16,
+  "version": "1.1.0",
   "updated_at": 1711224000000,
   "source": "https://github.com/mbentley/docker-timemachine",
   "exposable": false,
@@ -35,21 +35,15 @@
       "default": "/mnt/data_fast/timemachine"
     },
     {
-      "env_variable": "ARCHIVE_PATH",
-      "type": "text",
-      "label": "Archive Share Host Path",
-      "default": "/mnt/storage_bulk/archive"
-    },
-    {
       "env_variable": "TM_UID",
       "type": "number",
-      "label": "Container User UID (auth only, force user handles disk ownership)",
+      "label": "Owner UID",
       "default": 1001
     },
     {
       "env_variable": "TM_GID",
       "type": "number",
-      "label": "Container Group GID (auth only)",
+      "label": "Owner GID",
       "default": 1001
     }
   ]

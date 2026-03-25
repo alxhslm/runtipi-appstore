@@ -14,22 +14,13 @@
         { "key": "TM_UID", "value": "${TM_UID}" },
         { "key": "TM_GID", "value": "${TM_GID}" },
         { "key": "SHARE_NAME", "value": "TimeMachine" },
-        { "key": "SET_PERMISSIONS", "value": "false" },
-        { "key": "CUSTOM_SMB_CONF", "value": "true" },
+        { "key": "SET_PERMISSIONS", "value": "true" },
         { "key": "MIMIC_MODEL", "value": "TimeCapsule8,119" }
       ],
       "volumes": [
         {
           "hostPath": "${TIMEMACHINE_PATH}",
           "containerPath": "/opt/${TM_USERNAME}"
-        },
-        {
-          "hostPath": "${ARCHIVE_PATH}",
-          "containerPath": "/shares/archive"
-        },
-        {
-          "hostPath": "${APP_DATA_DIR}/smb.conf",
-          "containerPath": "/etc/samba/smb.conf"
         }
       ]
     }
