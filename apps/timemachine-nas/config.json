@@ -3,29 +3,29 @@
   "id": "timemachine-nas",
   "available": true,
   "short_desc": "Apple Time Machine compatible Samba NAS server",
-  "author": "crazy-max",
+  "author": "mbentley",
   "port": 4445,
   "no_gui": true,
   "categories": ["utilities", "network"],
-  "description": "Turn your RunTipi server into a Time Machine backup destination for your Mac. (Note: App will listen on port 445 on the host regardless of the port setting below).",
-  "tipi_version": 14,
-  "version": "0.3.3",
+  "description": "A macOS Time Machine backup destination using modern Samba (4.22) with built-in Avahi/Bonjour for automatic network discovery. Uses mbentley/timemachine:smb image.",
+  "tipi_version": 15,
+  "version": "1.0.0",
   "updated_at": 1711224000000,
-  "source": "https://github.com/ServerContainers/samba",
+  "source": "https://github.com/mbentley/docker-timemachine",
   "exposable": false,
   "supported_architectures": ["arm64", "amd64"],
   "dynamic_config": true,
   "form_fields": [
     {
-      "env_variable": "SAMBA_USER",
+      "env_variable": "TM_USERNAME",
       "type": "text",
-      "label": "Username",
+      "label": "Samba Username",
       "default": "tipi"
     },
     {
-      "env_variable": "SAMBA_PASS",
+      "env_variable": "TM_PASSWORD",
       "type": "password",
-      "label": "Password",
+      "label": "Samba Password",
       "default": "tipimachine"
     },
     {
@@ -35,28 +35,22 @@
       "default": "/mnt/data_fast/timemachine"
     },
     {
-      "env_variable": "ADDITIONAL_SHARE_NAME",
+      "env_variable": "ARCHIVE_PATH",
       "type": "text",
-      "label": "Additional SMB Share Name",
-      "default": "Archive"
-    },
-    {
-      "env_variable": "ADDITIONAL_SHARE_PATH",
-      "type": "text",
-      "label": "Additional SMB Share Host Path",
+      "label": "Archive Share Host Path",
       "default": "/mnt/storage_bulk/archive"
     },
     {
-      "env_variable": "PUID",
+      "env_variable": "TM_UID",
       "type": "number",
-      "label": "Owner PUID",
-      "default": 100
+      "label": "Container User UID (auth only, force user handles disk ownership)",
+      "default": 1001
     },
     {
-      "env_variable": "PGID",
+      "env_variable": "TM_GID",
       "type": "number",
-      "label": "Owner PGID",
-      "default": 101
+      "label": "Container Group GID (auth only)",
+      "default": 1001
     }
   ]
 }

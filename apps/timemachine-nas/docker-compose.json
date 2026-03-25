@@ -2,31 +2,34 @@
   "schemaVersion": 2,
   "services": [
     {
-      "name": "samba",
-      "image": "ghcr.io/servercontainers/samba",
+      "name": "timemachine",
+      "image": "mbentley/timemachine:smb",
       "isMain": true,
       "internalPort": "445",
       "networkMode": "host",
       "environment": [
-        { "key": "SAMBA_CONF_LOG_LEVEL", "value": "1" },
-        { "key": "ACCOUNT_${SAMBA_USER:-tipi}", "value": "${SAMBA_PASS:-tipimachine}" },
-        { "key": "SAMBA_CONF_GLOBAL_vfs_objects", "value": "catia fruit streams_xattr" },
-        { "key": "SAMBA_CONF_GLOBAL_fruit_aapl", "value": "yes" },
-        { "key": "SAMBA_CONF_GLOBAL_fruit_model", "value": "MacSamba" },
-        { "key": "SAMBA_CONF_GLOBAL_fruit_metadata", "value": "stream" },
-        { "key": "SAMBA_CONF_GLOBAL_fruit_nfs_aces", "value": "no" },
-        { "key": "SAMBA_CONF_GLOBAL_fruit_copyfile", "value": "yes" },
-        { "key": "SAMBA_VOLUME_CONFIG_TM", "value": "[TimeMachine];path=/data;valid users=${SAMBA_USER:-tipi};read only=no;fruit:time machine=yes;force user=100;force group=101" },
-        { "key": "SAMBA_VOLUME_CONFIG_ARC", "value": "[${ADDITIONAL_SHARE_NAME:-Archive}];path=/shares/Archive;valid users=${SAMBA_USER:-tipi};read only=no;force user=100;force group=101" }
+        { "key": "TM_USERNAME", "value": "${TM_USERNAME}" },
+        { "key": "TM_GROUPNAME", "value": "${TM_USERNAME}" },
+        { "key": "PASSWORD", "value": "${TM_PASSWORD}" },
+        { "key": "TM_UID", "value": "${TM_UID}" },
+        { "key": "TM_GID", "value": "${TM_GID}" },
+        { "key": "SHARE_NAME", "value": "TimeMachine" },
+        { "key": "SET_PERMISSIONS", "value": "false" },
+        { "key": "CUSTOM_SMB_CONF", "value": "true" },
+        { "key": "MIMIC_MODEL", "value": "TimeCapsule8,119" }
       ],
       "volumes": [
         {
-          "hostPath": "${TIMEMACHINE_PATH:-/mnt/data_fast/timemachine}",
-          "containerPath": "/data"
+          "hostPath": "${TIMEMACHINE_PATH}",
+          "containerPath": "/opt/${TM_USERNAME}"
         },
         {
-          "hostPath": "${ADDITIONAL_SHARE_PATH:-/mnt/storage_bulk/archive}",
-          "containerPath": "/shares/Archive"
+          "hostPath": "${ARCHIVE_PATH}",
+          "containerPath": "/shares/archive"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/smb.conf",
+          "containerPath": "/etc/samba/smb.conf"
         }
       ]
     }
