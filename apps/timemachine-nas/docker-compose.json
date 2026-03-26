@@ -24,6 +24,10 @@
         {
           "hostPath": "${TIMEMACHINE_PATH}",
           "containerPath": "/opt/${TM_USERNAME}"
+        },
+        {
+          "hostPath": "${ADDITIONAL_SHARE_PATH}",
+          "containerPath": "/shares/additional"
         }
       ]
     }
