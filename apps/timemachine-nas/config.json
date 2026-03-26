@@ -7,9 +7,9 @@
   "port": 4445,
   "no_gui": true,
   "categories": ["utilities", "network"],
-  "description": "A macOS Time Machine backup destination and file server using modern Samba (4.22) with built-in Avahi/Bonjour for automatic network discovery. Optionally add an extra file share by setting the Additional Share fields.",
-  "tipi_version": 20,
-  "version": "1.3.0",
+  "description": "A macOS Time Machine backup destination and file server using modern Samba (4.22) with built-in Avahi/Bonjour for automatic network discovery. Optionally enable an extra file share via the toggle below.",
+  "tipi_version": 21,
+  "version": "1.4.0",
   "updated_at": 1711224000000,
   "source": "https://github.com/mbentley/docker-timemachine",
   "exposable": false,
@@ -35,17 +35,6 @@
       "default": "/mnt/timemachine"
     },
     {
-      "env_variable": "ADDITIONAL_SHARE_NAME",
-      "type": "text",
-      "label": "Additional Share Name (leave empty to disable)"
-    },
-    {
-      "env_variable": "ADDITIONAL_SHARE_PATH",
-      "type": "text",
-      "label": "Additional Share Host Path",
-      "default": "/tmp"
-    },
-    {
       "env_variable": "TM_UID",
       "type": "number",
       "label": "Owner UID",
@@ -56,6 +45,24 @@
       "type": "number",
       "label": "Owner GID",
       "default": 1000
+    },
+    {
+      "env_variable": "ENABLE_ADDITIONAL_SHARE",
+      "type": "boolean",
+      "label": "Enable Additional Share",
+      "default": false
+    },
+    {
+      "env_variable": "ADDITIONAL_SHARE_NAME",
+      "type": "text",
+      "label": "Additional Share Name",
+      "default": "Share"
+    },
+    {
+      "env_variable": "ADDITIONAL_SHARE_PATH",
+      "type": "text",
+      "label": "Additional Share Host Path",
+      "default": "/tmp"
     }
   ]
 }

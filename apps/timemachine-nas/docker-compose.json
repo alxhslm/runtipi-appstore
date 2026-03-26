@@ -7,7 +7,7 @@
       "isMain": true,
       "internalPort": "445",
       "networkMode": "host",
-      "entrypoint": "/bin/sh -c 'printf \"[global]\\n  load printers = no\\n  log file = /var/log/samba/log.%%m\\n  logging = file\\n  max log size = 1000\\n  security = user\\n  server min protocol = SMB2\\n  server role = standalone server\\n  smb ports = 445\\n  workgroup = WORKGROUP\\n  vfs objects = catia fruit streams_xattr\\n  fruit:aapl = yes\\n  fruit:nfs_aces = no\\n  fruit:model = TimeCapsule8,119\\n  fruit:metadata = stream\\n  fruit:veto_appledouble = no\\n  fruit:posix_rename = yes\\n  fruit:zero_file_id = yes\\n  fruit:wipe_intentionally_left_blank_rfork = yes\\n  fruit:delete_empty_adfiles = yes\\n\\n[TimeMachine]\\n  path = /opt/${TM_USERNAME}\\n  read only = no\\n  valid users = ${TM_USERNAME}\\n  vfs objects = catia fruit streams_xattr\\n  fruit:time machine = yes\\n  fruit:time machine max size = 0\\n\" > /etc/samba/smb.conf && if [ -n \"${ADDITIONAL_SHARE_NAME}\" ]; then printf \"\\n[${ADDITIONAL_SHARE_NAME}]\\n  path = /shares/additional\\n  read only = no\\n  valid users = ${TM_USERNAME}\\n  vfs objects = catia fruit streams_xattr\\n\" >> /etc/samba/smb.conf; fi && exec /entrypoint.sh s6-svscan /etc/s6'",
+      "entrypoint": "/bin/sh -c 'printf \"[global]\\n  load printers = no\\n  log file = /var/log/samba/log.%%m\\n  logging = file\\n  max log size = 1000\\n  security = user\\n  server min protocol = SMB2\\n  server role = standalone server\\n  smb ports = 445\\n  workgroup = WORKGROUP\\n  vfs objects = catia fruit streams_xattr\\n  fruit:aapl = yes\\n  fruit:nfs_aces = no\\n  fruit:model = TimeCapsule8,119\\n  fruit:metadata = stream\\n  fruit:veto_appledouble = no\\n  fruit:posix_rename = yes\\n  fruit:zero_file_id = yes\\n  fruit:wipe_intentionally_left_blank_rfork = yes\\n  fruit:delete_empty_adfiles = yes\\n\\n[TimeMachine]\\n  path = /opt/${TM_USERNAME}\\n  read only = no\\n  valid users = ${TM_USERNAME}\\n  vfs objects = catia fruit streams_xattr\\n  fruit:time machine = yes\\n  fruit:time machine max size = 0\\n\" > /etc/samba/smb.conf && if [ \"${ENABLE_ADDITIONAL_SHARE}\" = \"true\" ]; then printf \"\\n[${ADDITIONAL_SHARE_NAME}]\\n  path = /shares/additional\\n  read only = no\\n  valid users = ${TM_USERNAME}\\n  vfs objects = catia fruit streams_xattr\\n\" >> /etc/samba/smb.conf; fi && exec /entrypoint.sh s6-svscan /etc/s6'",
       "environment": [
         { "key": "TM_USERNAME", "value": "${TM_USERNAME}" },
         { "key": "TM_GROUPNAME", "value": "${TM_USERNAME}" },
@@ -15,6 +15,7 @@
         { "key": "TM_UID", "value": "${TM_UID}" },
         { "key": "TM_GID", "value": "${TM_GID}" },
         { "key": "SHARE_NAME", "value": "TimeMachine" },
+        { "key": "ENABLE_ADDITIONAL_SHARE", "value": "${ENABLE_ADDITIONAL_SHARE}" },
         { "key": "ADDITIONAL_SHARE_NAME", "value": "${ADDITIONAL_SHARE_NAME}" },
         { "key": "SET_PERMISSIONS", "value": "true" },
         { "key": "CUSTOM_SMB_CONF", "value": "true" },
