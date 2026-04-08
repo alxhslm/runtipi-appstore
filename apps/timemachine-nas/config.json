@@ -8,7 +8,7 @@
   "no_gui": true,
   "categories": ["utilities", "network"],
   "description": "A macOS Time Machine backup destination and file server using modern Samba (4.22) with built-in Avahi/Bonjour for automatic network discovery. Optionally enable an extra file share via the toggle below.",
-  "tipi_version": 22,
+  "tipi_version": 23,
   "version": "1.4.0",
   "updated_at": 1775606400000,
   "source": "https://github.com/mbentley/docker-timemachine",
