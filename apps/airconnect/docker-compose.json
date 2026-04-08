@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 2,
+  "services": [
+    {
+      "name": "airconnect",
+      "image": "1activegeek/airconnect",
+      "isMain": true,
+      "networkMode": "host",
+      "environment": [
+        { "key": "AIRCAST_VAR", "value": "${AIRCAST_VAR}" },
+        { "key": "AIRUPNP_VAR", "value": "${AIRUPNP_VAR}" }
+      ]
+    }
+  ]
+}

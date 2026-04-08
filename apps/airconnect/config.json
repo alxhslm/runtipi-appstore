@@ -1,0 +1,30 @@
+{
+  "name": "AirConnect",
+  "id": "airconnect",
+  "available": true,
+  "short_desc": "Use AirPlay to stream to UPnP/Sonos & Chromecast devices",
+  "author": "philippe44",
+  "no_gui": true,
+  "categories": ["media", "network"],
+  "description": "AirConnect bridges AirPlay with UPnP/Sonos and Google Cast (Chromecast) devices, letting you stream audio from your iPhone, iPad, or Mac to speakers that don't natively support AirPlay.",
+  "tipi_version": 1,
+  "version": "latest",
+  "updated_at": 1775088000000,
+  "source": "https://github.com/philippe44/AirConnect",
+  "exposable": false,
+  "supported_architectures": ["arm64", "amd64"],
+  "form_fields": [
+    {
+      "env_variable": "AIRCAST_VAR",
+      "type": "text",
+      "label": "AirCast (Chromecast) arguments — set to 'kill' to disable",
+      "default": ""
+    },
+    {
+      "env_variable": "AIRUPNP_VAR",
+      "type": "text",
+      "label": "AirUPnP (Sonos/UPnP) arguments — set to 'kill' to disable",
+      "default": ""
+    }
+  ]
+}
