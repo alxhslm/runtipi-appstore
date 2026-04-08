@@ -6,9 +6,12 @@
       "image": "1activegeek/airconnect",
       "isMain": true,
       "networkMode": "host",
+      "entrypoint": "/bin/sh -c 'if [ \"$ENABLE_AIRCAST\" = \"false\" ]; then AIRCAST_VAR=kill; else AIRCAST_VAR=\"$AIRCAST_ARGS\"; fi; if [ \"$ENABLE_AIRUPNP\" = \"false\" ]; then AIRUPNP_VAR=kill; else AIRUPNP_VAR=\"$AIRUPNP_ARGS\"; fi; export AIRCAST_VAR AIRUPNP_VAR; exec /init'",
       "environment": [
-        { "key": "AIRCAST_VAR", "value": "${AIRCAST_VAR}" },
-        { "key": "AIRUPNP_VAR", "value": "${AIRUPNP_VAR}" }
+        { "key": "ENABLE_AIRCAST", "value": "${ENABLE_AIRCAST}" },
+        { "key": "ENABLE_AIRUPNP", "value": "${ENABLE_AIRUPNP}" },
+        { "key": "AIRCAST_ARGS", "value": "${AIRCAST_ARGS}" },
+        { "key": "AIRUPNP_ARGS", "value": "${AIRUPNP_ARGS}" }
       ]
     }
   ]

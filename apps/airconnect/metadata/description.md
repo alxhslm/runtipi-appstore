@@ -15,10 +15,9 @@ No setup required. Once running, your Chromecast and UPnP/Sonos devices will app
 
 ## Advanced
 
-You can pass command-line arguments to each bridge via the form fields:
+Use the toggles to enable or disable each bridge. You can also pass extra command-line arguments to each binary:
 
 - **AirCast arguments**: passed directly to the `aircast` binary (e.g. `-x /config/config.xml`)
-- **AirUPnP arguments**: passed directly to the `airupnp` binary (e.g. `-l 1000:2000` is included by default for Sonos/Heos compatibility)
-- Set either field to `kill` to disable that bridge entirely
+- **AirUPnP arguments**: passed directly to the `airupnp` binary (e.g. `-l 1000:2000` for Sonos/Heos compatibility)
 
 See the [AirConnect documentation](https://github.com/philippe44/AirConnect) for the full list of supported arguments.
