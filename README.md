@@ -1,31 +1,23 @@
-# Example App Store Template
+# Alex's Runtipi App Store
 
-This repository serves as a template for creating your own custom app store for the Runtipi platform. Use this as a starting point to create and share your own collection of applications.
+My personal app store for the [Runtipi](https://runtipi.io) platform.
 
-## Repository Structure
+## Apps
 
-- **apps/**: Contains individual app directories
+| App | Description | Project |
+|-----|-------------|---------|
+| [AirConnect](apps/airconnect/) | Bridges AirPlay to Chromecast, UPnP, and Sonos devices | [philippe44/AirConnect](https://github.com/philippe44/AirConnect) |
+| [Time Machine NAS](apps/timemachine-nas/) | Apple Time Machine compatible Samba NAS server with Bonjour discovery | [mbentley/docker-timemachine](https://github.com/mbentley/docker-timemachine) |
 
-  - Each app has its own folder (e.g., `whoami/`) with the following structure:
-    - `config.json`: App configuration file
-    - `docker-compose.json`: Docker setup for the app
-    - `metadata/`: Contains app visuals and descriptions
-      - `description.md`: Markdown description of the app
-      - `logo.jpg`: App logo image
+## Structure
 
-- **tests/**: Contains test files for the app store
+Each app lives under `apps/<id>/` and contains:
 
-  - `apps.test.ts`: Test suite for validating apps
+- `config.json` — app metadata and form fields
+- `docker-compose.json` — Docker service definition
+- `metadata/description.md` — app description
+- `metadata/logo.jpg` — app logo
 
-## Getting Started
+## Contributing
 
-This repository is intended to serve as a template for creating your own app store. Follow these steps to get started:
-
-1. Click the "Use this template" button to create a new repository based on this template
-2. Customize the apps or add your own app folders in the `apps/` directory
-3. Test your app store by using it with Runtipi
-
-## Documentation
-
-For detailed instructions on creating your own app store, please refer to the official guide:
-[Create Your Own App Store Guide](https://runtipi.io/docs/guides/create-your-own-app-store)
+PRs welcome — feel free to submit new apps or improvements to existing ones.
