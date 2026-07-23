@@ -11,7 +11,7 @@
   "version": "latest",
   "updated_at": 1784803700000,
   "source": "https://lmstudio.ai/docs/developer/core/headless",
-  "exposable": true,
+  "exposable": false,
   "supported_architectures": ["arm64", "amd64"],
   "form_fields": [
     {
