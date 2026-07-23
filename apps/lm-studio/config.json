@@ -21,6 +21,12 @@
       "default": "google/gemma-4-e4b"
     },
     {
+      "env_variable": "CONTEXT_LENGTH",
+      "type": "number",
+      "label": "Context Window Length in Tokens (e.g. 4096, 8192, 16384, 32768)",
+      "default": 16384
+    },
+    {
       "env_variable": "PORT",
       "type": "number",
       "label": "LM Studio API Port",

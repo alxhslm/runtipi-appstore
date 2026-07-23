@@ -9,11 +9,16 @@
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/models",
-          "containerPath": "/root/.cache/lm-studio"
+          "containerPath": "/root/.lmstudio/models"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/config",
+          "containerPath": "/root/.config/lm-studio"
         }
       ],
       "environment": [
         { "key": "MODEL_ID", "value": "${MODEL_ID}" },
+        { "key": "CONTEXT_LENGTH", "value": "${CONTEXT_LENGTH}" },
         { "key": "PORT", "value": "${PORT}" },
         { "key": "CUDA_VISIBLE_DEVICES", "value": "${CUDA_VISIBLE_DEVICES}" }
       ]
