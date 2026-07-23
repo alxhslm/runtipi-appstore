@@ -16,4 +16,4 @@ ENV PATH="/root/.lmstudio/bin:${PATH}"
 
 EXPOSE 1234
 
-CMD ["sh", "-c", "lms daemon up && if [ -n \"$MODEL_ID\" ]; then lms get \"$MODEL_ID\" --yes || lms get \"$MODEL_ID\"; lms load \"$MODEL_ID\"; fi && lms server start --port 1234 --host 0.0.0.0"]
+CMD ["sh", "-c", "lms daemon up && lms link enable || true; if [ -n \"$MODEL_ID\" ]; then lms get \"$MODEL_ID\" --yes || lms get \"$MODEL_ID\"; lms load \"$MODEL_ID\"; fi && lms server start --port 1234 --host 0.0.0.0"]
