@@ -23,8 +23,8 @@
     {
       "env_variable": "CONTEXT_LENGTH",
       "type": "number",
-      "label": "Context Window Length in Tokens (e.g. 4096, 8192, 16384, 32768)",
-      "default": 16384
+      "label": "Context Window Length in Tokens (e.g. 4096, 8192, 16384, 65536, 98304)",
+      "default": 65536
     },
     {
       "env_variable": "PORT",
