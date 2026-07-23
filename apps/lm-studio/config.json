@@ -2,7 +2,7 @@
   "name": "LM Studio Headless",
   "id": "lm-studio",
   "available": true,
-  "port": 1234,
+  "port": 8085,
   "short_desc": "Local AI model server and OpenAI-compatible API engine",
   "author": "LM Studio",
   "categories": ["utilities", "network"],
@@ -17,7 +17,7 @@
     {
       "env_variable": "PORT",
       "type": "number",
-      "label": "LM Studio Server Port",
+      "label": "LM Studio API Port",
       "default": 1234
     },
     {

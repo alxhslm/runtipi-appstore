@@ -5,7 +5,13 @@
       "name": "lm-studio",
       "image": "lscr.io/linuxserver/lm-studio:latest",
       "isMain": true,
-      "internalPort": 1234,
+      "internalPort": 3000,
+      "port": [
+        {
+          "containerPort": 1234,
+          "hostPort": "${PORT}"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/models",
@@ -13,6 +19,7 @@
         }
       ],
       "environment": [
+        { "key": "PORT", "value": "${PORT}" },
         { "key": "CUDA_VISIBLE_DEVICES", "value": "${CUDA_VISIBLE_DEVICES}" }
       ]
     }
