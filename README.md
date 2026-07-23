@@ -7,6 +7,7 @@ My personal app store for the [Runtipi](https://runtipi.io) platform.
 | App | Description | Project |
 |-----|-------------|---------|
 | [AirConnect](apps/airconnect/) | Bridges AirPlay to Chromecast, UPnP, and Sonos devices | [philippe44/AirConnect](https://github.com/philippe44/AirConnect) |
+| [LM Studio Headless](apps/lm-studio/) | Pure OpenAI-compatible local AI inference engine and LM Link server | [LM Studio](https://lmstudio.ai/docs/developer/core/headless) |
 | [Time Machine NAS](apps/timemachine-nas/) | Apple Time Machine compatible Samba NAS server with Bonjour discovery | [mbentley/docker-timemachine](https://github.com/mbentley/docker-timemachine) |
 
 ## Structure
