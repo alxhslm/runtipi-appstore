@@ -10,7 +10,7 @@ lms link enable || true
 echo "Starting LM Studio Server on port 1234..."
 lms server start --port 1234 --bind 0.0.0.0 --cors || true
 
-CONTEXT_LEN="${CONTEXT_LENGTH:-65536}"
+CONTEXT_LEN="${CONTEXT_LENGTH:-8192}"
 
 if [ -n "$MODEL_ID" ]; then
   echo "Auto-loading model: $MODEL_ID (${CONTEXT_LEN} context tokens)..."
