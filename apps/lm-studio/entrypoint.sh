@@ -1,5 +1,7 @@
 #!/bin/sh
 
+trap 'exit 0' TERM INT
+
 echo "Starting LM Studio Headless Daemon..."
 lms daemon up
 
@@ -18,4 +20,7 @@ if [ -n "$MODEL_ID" ]; then
 fi
 
 echo "LM Studio Headless Server is ready!"
-exec tail -f /dev/null
+while true; do
+  sleep 1 &
+  wait $!
+done
