@@ -3,8 +3,7 @@
   "services": [
     {
       "name": "lm-studio",
-      "image": "lms-headless:latest",
-      "pull_policy": "never",
+      "image": "ghcr.io/alxhslm/lms-headless:latest",
       "isMain": true,
       "internalPort": 1234,
       "volumes": [
