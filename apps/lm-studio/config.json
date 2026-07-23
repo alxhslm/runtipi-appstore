@@ -1,0 +1,30 @@
+{
+  "name": "LM Studio Headless",
+  "id": "lm-studio",
+  "available": true,
+  "port": 1234,
+  "short_desc": "Local AI model server and OpenAI-compatible API engine",
+  "author": "LM Studio",
+  "categories": ["utilities", "network"],
+  "description": "LM Studio Headless (lms) runs an OpenAI-compatible local AI inference server for running GGUF LLMs on host CPU/GPU.",
+  "tipi_version": 2,
+  "version": "latest",
+  "updated_at": 1784803700000,
+  "source": "https://lmstudio.ai/docs/developer/core/headless",
+  "exposable": true,
+  "supported_architectures": ["arm64", "amd64"],
+  "form_fields": [
+    {
+      "env_variable": "PORT",
+      "type": "number",
+      "label": "LM Studio Server Port",
+      "default": 1234
+    },
+    {
+      "env_variable": "CUDA_VISIBLE_DEVICES",
+      "type": "text",
+      "label": "GPU Device IDs (optional, e.g. 0,1 or all)",
+      "default": "all"
+    }
+  ]
+}

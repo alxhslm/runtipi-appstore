@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 2,
+  "services": [
+    {
+      "name": "lm-studio",
+      "image": "lscr.io/linuxserver/lm-studio:latest",
+      "isMain": true,
+      "port": [
+        {
+          "containerPort": 1234,
+          "hostPort": "${PORT}"
+        }
+      ],
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/models",
+          "containerPath": "/root/.cache/lm-studio"
+        }
+      ],
+      "environment": [
+        { "key": "PORT", "value": "${PORT}" },
+        { "key": "CUDA_VISIBLE_DEVICES", "value": "${CUDA_VISIBLE_DEVICES}" }
+      ]
+    }
+  ]
+}
