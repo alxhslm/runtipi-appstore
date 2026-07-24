@@ -43,11 +43,20 @@ lms server start --port 1234 --bind 0.0.0.0 --cors || true
 
 CONTEXT_LEN="${CONTEXT_LENGTH:-8192}"
 
+if [ -n "$CPU_THREADS" ]; then
+  THREADS="$CPU_THREADS"
+else
+  THREADS=$(lscpu -p=CORE 2>/dev/null | grep -v '^#' | sort -u | wc -l)
+  if [ -z "$THREADS" ] || [ "$THREADS" -eq 0 ]; then
+    THREADS=$(nproc 2>/dev/null || echo 4)
+  fi
+fi
+
 if [ -n "$MODEL_ID" ]; then
-  echo "Triggering background model download and load for: $MODEL_ID (${CONTEXT_LEN} tokens)..."
+  echo "Triggering background model download and load for: $MODEL_ID (${CONTEXT_LEN} tokens, ${THREADS} threads)..."
   (
     lms get "$MODEL_ID" --yes >/tmp/lms-download.log 2>&1
-    lms load "$MODEL_ID" --context-length "$CONTEXT_LEN" --identifier "$MODEL_ID" -y >>/tmp/lms-download.log 2>&1
+    lms load "$MODEL_ID" --context-length "$CONTEXT_LEN" --threads "$THREADS" --identifier "$MODEL_ID" -y >>/tmp/lms-download.log 2>&1
   ) &
 fi
 

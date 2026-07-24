@@ -28,6 +28,7 @@
         { "key": "LINK_DEVICE_NAME", "value": "${LINK_DEVICE_NAME}" },
         { "key": "MODEL_ID", "value": "${MODEL_ID}" },
         { "key": "CONTEXT_LENGTH", "value": "${CONTEXT_LENGTH}" },
+        { "key": "CPU_THREADS", "value": "${CPU_THREADS}" },
         { "key": "PORT", "value": "${PORT}" },
         { "key": "CUDA_VISIBLE_DEVICES", "value": "${CUDA_VISIBLE_DEVICES}" }
       ]

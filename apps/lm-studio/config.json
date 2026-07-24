@@ -7,9 +7,9 @@
   "author": "LM Studio",
   "categories": ["utilities", "network"],
   "description": "LM Studio Headless (lms) runs a pure OpenAI-compatible local AI inference server for running GGUF LLMs on host CPU/GPU.",
-  "tipi_version": 16,
-  "version": "1.0.16",
-  "updated_at": 1784848420000,
+  "tipi_version": 17,
+  "version": "1.0.17",
+  "updated_at": 1784849620000,
   "source": "https://lmstudio.ai/docs/developer/core/headless",
   "exposable": false,
   "supported_architectures": ["arm64", "amd64"],
@@ -27,9 +27,15 @@
       "default": ""
     },
     {
+      "env_variable": "CPU_THREADS",
+      "type": "text",
+      "label": "CPU Threads for Inference (optional, leave blank to auto-detect physical CPU cores)",
+      "default": ""
+    },
+    {
       "env_variable": "CONTEXT_LENGTH",
       "type": "number",
-      "label": "Context Window Length in Tokens (e.g. 4096, 8192, 16384, 65536)",
+      "label": "Context Window Length in Tokens (e.g. 4096, 8192, 16384)",
       "default": 8192
     },
     {
