@@ -8,8 +8,10 @@ lms daemon up
 echo "Enabling LM Link..."
 lms link enable || true
 
-echo "Setting LM Link device name..."
-lms link set-device-name "${LINK_DEVICE_NAME:-homelab}" || true
+if [ -n "$LINK_DEVICE_NAME" ]; then
+  echo "Setting LM Link device name to: $LINK_DEVICE_NAME..."
+  lms link set-device-name "$LINK_DEVICE_NAME" || true
+fi
 
 echo "Starting LM Studio Server on port 1234..."
 lms server start --port 1234 --bind 0.0.0.0 --cors || true
