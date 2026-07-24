@@ -4,14 +4,16 @@ trap 'exit 0' TERM INT
 
 export PATH="/root/.lmstudio/bin:$PATH"
 
-# Ensure internal install pointer exists for llmster engine
-if [ ! -f /root/.lmstudio/.internal/llmster-install-location.json ]; then
+# Dynamically locate the llmster engine binary regardless of version updates
+LLMSTER_BIN=$(find /root/.lmstudio/llmster -name "llmster" -type f 2>/dev/null | head -n 1)
+if [ -n "$LLMSTER_BIN" ]; then
+  LLMSTER_DIR=$(dirname "$LLMSTER_BIN")
   mkdir -p /root/.lmstudio/.internal
-  cat << 'EOF' > /root/.lmstudio/.internal/llmster-install-location.json
+  cat << EOF > /root/.lmstudio/.internal/llmster-install-location.json
 {
-  "path": "/root/.lmstudio/llmster/0.0.20-1/llmster",
+  "path": "$LLMSTER_BIN",
   "argv": [],
-  "cwd": "/root/.lmstudio/llmster/0.0.20-1"
+  "cwd": "$LLMSTER_DIR"
 }
 EOF
 fi
