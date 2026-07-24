@@ -12,12 +12,12 @@
           "containerPath": "/root/.lmstudio/models"
         },
         {
-          "hostPath": "${APP_DATA_DIR}/config",
-          "containerPath": "/root/.config/lm-studio"
+          "hostPath": "${APP_DATA_DIR}/credentials",
+          "containerPath": "/root/.lmstudio/credentials"
         },
         {
-          "hostPath": "${APP_DATA_DIR}/auth",
-          "containerPath": "/root/.lmstudio/user_data"
+          "hostPath": "${APP_DATA_DIR}/settings.json",
+          "containerPath": "/root/.lmstudio/settings.json"
         }
       ],
       "environment": [
