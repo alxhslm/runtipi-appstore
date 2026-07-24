@@ -8,7 +8,7 @@
       "internalPort": 1234,
       "volumes": [
         {
-          "hostPath": "${APP_DATA_DIR}/models",
+          "hostPath": "${RUNTIPI_APP_DATA_PATH}/media/lm-studio/models",
           "containerPath": "/root/.lmstudio/models"
         },
         {
