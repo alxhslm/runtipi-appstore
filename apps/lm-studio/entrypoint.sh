@@ -13,6 +13,12 @@ if [ -n "$LINK_DEVICE_NAME" ]; then
   lms link set-device-name "$LINK_DEVICE_NAME" || true
 fi
 
+echo "Checking LM Link authentication status..."
+if ! lms link status 2>&1 | grep -q "Online"; then
+  echo "LM Link authentication required. Generating pairing URL..."
+  lms login || true
+fi
+
 echo "Starting LM Studio Server on port 1234..."
 lms server start --port 1234 --bind 0.0.0.0 --cors || true
 
