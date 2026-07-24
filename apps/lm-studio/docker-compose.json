@@ -12,16 +12,8 @@
           "containerPath": "/root/.lmstudio/models"
         },
         {
-          "hostPath": "${APP_DATA_DIR}/internal",
-          "containerPath": "/root/.lmstudio/.internal"
-        },
-        {
-          "hostPath": "${APP_DATA_DIR}/credentials",
-          "containerPath": "/root/.lmstudio/credentials"
-        },
-        {
-          "hostPath": "${APP_DATA_DIR}/settings.json",
-          "containerPath": "/root/.lmstudio/settings.json"
+          "hostPath": "${APP_DATA_DIR}/lmstudio",
+          "containerPath": "/root/.lmstudio"
         }
       ],
       "environment": [
