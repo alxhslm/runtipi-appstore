@@ -5,7 +5,8 @@ on:
     branches:
       - main
     paths:
-      - 'apps/lm-studio/**'
+      - 'apps/lm-studio/Dockerfile'
+      - 'apps/lm-studio/entrypoint.sh'
 
 jobs:
   build:
