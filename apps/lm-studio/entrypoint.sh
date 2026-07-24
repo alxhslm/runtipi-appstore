@@ -2,6 +2,23 @@
 
 trap 'exit 0' TERM INT
 
+export PATH="/root/.lmstudio/bin:$PATH"
+
+# Ensure internal install pointer exists for llmster engine
+if [ ! -f /root/.lmstudio/.internal/llmster-install-location.json ]; then
+  mkdir -p /root/.lmstudio/.internal
+  cat << 'EOF' > /root/.lmstudio/.internal/llmster-install-location.json
+{
+  "path": "/root/.lmstudio/llmster/0.0.20-1/llmster",
+  "argv": [],
+  "cwd": "/root/.lmstudio/llmster/0.0.20-1"
+}
+EOF
+fi
+
+# Purge heavy temporary binary caches from internal volume to keep app-data small and backups fast
+rm -rf /root/.lmstudio/.internal/utils /root/.lmstudio/.internal/bundled-models 2>/dev/null || true
+
 echo "Starting LM Studio Headless Daemon..."
 lms daemon up
 
