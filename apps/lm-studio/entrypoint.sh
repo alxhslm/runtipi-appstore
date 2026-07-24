@@ -21,8 +21,8 @@ CONTEXT_LEN="${CONTEXT_LENGTH:-8192}"
 if [ -n "$MODEL_ID" ]; then
   echo "Triggering background model download and load for: $MODEL_ID (${CONTEXT_LEN} tokens)..."
   (
-    lms get "$MODEL_ID" --yes >/dev/null 2>&1
-    lms load "$MODEL_ID" --context-length "$CONTEXT_LEN" --identifier "$MODEL_ID" -y >/dev/null 2>&1
+    lms get "$MODEL_ID" --yes >/tmp/lms-download.log 2>&1
+    lms load "$MODEL_ID" --context-length "$CONTEXT_LEN" --identifier "$MODEL_ID" -y >>/tmp/lms-download.log 2>&1
   ) &
 fi
 
